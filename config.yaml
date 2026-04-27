@@ -1,0 +1,43 @@
+env:
+  image_size: 64
+  max_steps: 200
+  expert_prob: 0.5
+  pd_kp: 10.0
+  pd_kd: 1.0
+
+model:
+  embed_dim: 1024
+  h_dim: 200
+  z_dim: 30
+  hidden_dim: 200
+  action_dim: 2
+  min_std: 0.1
+
+buffer:
+  capacity: 200
+  init_episodes: 50
+  seq_len: 50
+
+train:
+  batch_size: 16
+  train_steps: 20000
+  lr: 6.0e-4
+  adam_eps: 1.0e-4
+  grad_clip: 100.0
+  kl_weight: 1.0
+  free_nats: 3.0
+  collect_every: 5
+  log_every: 100
+  checkpoint_every: 1000
+  video_every: 1000
+  model_dir: model/
+  video_dir: video/
+  figure_dir: figures/
+
+eval:
+  checkpoint: model/world_model.pt
+  num_episodes: 5
+  context_len: 5
+  imagine_horizon: 45
+  video_dir: video/
+  figure_dir: figures/

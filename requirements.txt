@@ -1,0 +1,9 @@
+torch>=2.0
+numpy
+gymnasium[classic-control]
+opencv-python
+scikit-video
+pyyaml
+matplotlib
+scikit-learn
+pytest
